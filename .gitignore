@@ -1,3 +1,9 @@
+
+bazel-bin
+bazel-out
+bazel-testlogs
+bazel-bazel_j2cl_demo
+.ijwb
 # Compiled class file
 *.class
 
