@@ -55,3 +55,9 @@ def maven_dependencies(
        licenses = ["notice"],
        server_urls = maven_servers,
     )
+    jvm_maven_import_external(
+       name = "gwt3-processors-annotations",
+       artifact = "org.treblereel.j2cl.processors:annotations:0.3",
+       licenses = ["notice"],
+       server_urls = maven_servers,
+    )
