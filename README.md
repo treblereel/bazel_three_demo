@@ -5,7 +5,7 @@
 * add bazel plugin to Intellij IDEA
 * then import a project with File -> Import Bazel Project 
 
-##run:
+## run:
 in terminal run 'bazel run //demo:client-app_dev_server'
 
 ## issues
