@@ -3,12 +3,13 @@ load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_application", "j2cl_library
 
 
 java_library(
-    name = "demo",
+    name = "core",
     srcs = glob(
         [
            "java/src/**/*.java",
         ],
     ),
+    visibility = ["//demo:__pkg__"],
     deps = [
 	    "@elemental2-dom//jar",
 	    "@jsinterop-annotations//jar",
@@ -16,20 +17,14 @@ java_library(
 )
 
 j2cl_library(
-    name = "client-lib-j2cl",
+    name = "client-core-j2cl",
     srcs = glob(
         [
             "java/src/**/*.java",
-            "java/src/**/*.js",
         ],
     ),
+    visibility = ["//demo:__pkg__"],
     deps = [
-	"@com_google_elemental2//:elemental2-dom-j2cl",
+	    "@com_google_elemental2//:elemental2-dom-j2cl",
     ],
-)
-
-j2cl_application(
-    name = "client-app",
-    entry_points = ["library.Greeting"],
-    deps = [":client-lib-j2cl"],
 )

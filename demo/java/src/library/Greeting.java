@@ -1,18 +1,13 @@
 package library;
 
 
-import elemental2.dom.DomGlobal;
-import elemental2.dom.Event;
-import elemental2.dom.EventListener;
-import elemental2.dom.HTMLButtonElement;
+import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 public class Greeting {
 
+    @GWT3EntryPoint
     public void onModuleLoad() {
-        HTMLButtonElement btn = (HTMLButtonElement) DomGlobal.document.createElement("button");
-        btn.textContent = "CLICK ME";
-        btn.addEventListener("click", evt -> DomGlobal.window.alert("HELLO WORLD!"));
-        DomGlobal.document.body.appendChild(btn);
+        new Test().init();
     }
 
 }
