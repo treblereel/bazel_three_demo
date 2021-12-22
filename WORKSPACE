@@ -33,10 +33,18 @@ maven_dependencies()
 _MAVEN_CENTRAL_URLS = ["https://repo1.maven.org/maven2/"]
 
 j2cl_maven_import_external(
-    name = "j2cl-processors-annotations",
+    name = "gwt3-processors-annotations-j2cl",
     artifact = "org.treblereel.j2cl.processors:annotations:0.3",
     server_urls = _MAVEN_CENTRAL_URLS,
 )
+
+_JSINTEROP_BASE_VERSION = "1.0.0"
+http_archive(
+    name = "com_google_jsinterop_base",
+    strip_prefix = "jsinterop-base-%s" % _JSINTEROP_BASE_VERSION,
+    url = "https://github.com/google/jsinterop-base/archive/%s.zip" % _JSINTEROP_BASE_VERSION,
+)
+
 
 load("@bazel_tools//tools/build_defs/repo:maven_rules.bzl", "maven_jar")
 
