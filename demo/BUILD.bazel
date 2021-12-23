@@ -19,12 +19,13 @@ java_library(
 	    "//core:core",
 	    "@elemental2-dom//jar",
 	    "@jsinterop-annotations//jar",
+	    "@jsinterop-base//jar",
 	    "@gwt3-processors-annotations",
     ],
 )
 
 j2cl_library(
-    name = "client-lib-j2cl",
+    name = "demo-lib-j2cl",
     srcs = glob(
         [
             "java/src/**/*.java",
@@ -35,15 +36,16 @@ j2cl_library(
         ":j2cl-processors_plugin"
     ],
     deps = [
-        "//core:client-core-j2cl",
+        "//core:core-j2cl",
 	    "@com_google_elemental2//:elemental2-dom-j2cl",
-	    "@j2cl-processors-annotations",
+	    "@gwt3-processors-annotations-j2cl",
+        "@com_google_j2cl//:jsinterop-annotations-j2cl",
     ],
 )
 
 j2cl_application(
-    name = "client-app",
-    entry_points = ["library.Greeting"],
-    deps = [":client-lib-j2cl"],
+    name = "demo-app",
+    entry_points = ["demo.Starter"],
+    deps = [":demo-lib-j2cl"],
 )
 

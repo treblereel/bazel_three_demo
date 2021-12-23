@@ -9,22 +9,33 @@ java_library(
            "java/src/**/*.java",
         ],
     ),
-    visibility = ["//demo:__pkg__"],
+    visibility = ["//visibility:public"],
     deps = [
+	    "@jsinterop-base//jar",
+	    "@elemental2-core//jar",
 	    "@elemental2-dom//jar",
+	    "@elemental2-promise//jar",
+	    "@elemental2-webgl//jar",
 	    "@jsinterop-annotations//jar",
     ],
 )
 
 j2cl_library(
-    name = "client-core-j2cl",
+    name = "core-j2cl",
     srcs = glob(
         [
             "java/src/**/*.java",
+            "java/src/**/*.js",
         ],
     ),
-    visibility = ["//demo:__pkg__"],
+    visibility = ["//visibility:public"],
     deps = [
+	    "@com_google_elemental2//:elemental2-core-j2cl",
 	    "@com_google_elemental2//:elemental2-dom-j2cl",
+	    "@com_google_elemental2//:elemental2-promise-j2cl",
+	    "@com_google_elemental2//:elemental2-webgl-j2cl",
+        "@com_google_jsinterop_base//:jsinterop-base-j2cl",
+        "@com_google_j2cl//:jsinterop-annotations-j2cl",
+
     ],
 )
